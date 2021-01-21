@@ -10,7 +10,7 @@ class GetImage:
     
     def get_unsplash_img(self,query_word = 'motivation')
         """
-        Gets images from Unsplash and downloads it.
+        Gets images from Unsplash and downloads+resizes it.
         @param query_word - ranked word
         returns list of metrics
         """
@@ -23,20 +23,31 @@ class GetImage:
         img_twitter_username = img_data['user']['twitter_username']
         img_name = query+'.jpg'
         url.urlretrieve(img_url,img_name)
-        return [img_name,img_author,img_twitter_username,orientation]
 
-
-    def resize_img(self,image,orientation):
-        """
-        Resizes the image 
-        """
-
+        "Resizing Image"
         if orientation =='landscape':
-            bg=Image.open(image)
+            bg=Image.open(img_name)
             resize_bg = bg.resize((1200,675))
             resize_bg.save('bg images/resize_bg.jpg')
         else:
-            bg=Image.open(image)
+            bg=Image.open(img_name)
             resize_bg = bg.resize((640,960))
             resize_bg.save('bg images/resize_bg.jpg')
+
+        return [img_author,img_twitter_username,orientation]
+
+
+    # def resize_img(self,image,orientation):
+    #     """
+    #     Resizes the image 
+    #     """
+
+    #     if orientation =='landscape':
+    #         bg=Image.open(image)
+    #         resize_bg = bg.resize((1200,675))
+    #         resize_bg.save('bg images/resize_bg.jpg')
+    #     else:
+    #         bg=Image.open(image)
+    #         resize_bg = bg.resize((640,960))
+    #         resize_bg.save('bg images/resize_bg.jpg')
 
