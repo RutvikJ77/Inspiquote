@@ -1,10 +1,11 @@
 import random
 import requests
 from rake_nltk import Rake
-from credentials import *
+from os import environ
+#from credentials import *
 
 CATEGORY = ['motivation', 'inspiration', 'inspire', 'motivational', 'productive']
-
+ACCESS_KEY_QUOTES = environ['ACCESS_KEY']
 
 class Quotes:
     def quotes_fav(self):

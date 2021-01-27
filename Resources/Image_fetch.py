@@ -1,10 +1,11 @@
 from PIL import Image
-from credentials import *
+#from credentials import *
 import requests
 import random
 import urllib.request as url
+from os import environ
 
-
+UNSPLASH_ACCESS_KEY = ["UNSPLASH_ACCESS_KEY"]
 
 class GetImage:
     
