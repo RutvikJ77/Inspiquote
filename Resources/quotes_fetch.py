@@ -5,7 +5,7 @@ from os import environ
 #from credentials import *
 
 CATEGORY = ['motivation', 'inspiration', 'inspire', 'motivational', 'productive']
-ACCESS_KEY_QUOTES = environ['ACCESS_KEY']
+ACCESS_KEY_QUOTES = environ['ACCESS_KEY_QUOTES']
 
 class Quotes:
     def quotes_fav(self):
