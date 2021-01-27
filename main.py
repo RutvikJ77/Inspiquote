@@ -13,17 +13,13 @@ quote = "\"" + quote_author[0] + "\" " + "- " + quote_author[1]
 
 def tags(api):
     last_id = 1
-    while True:
-        last_id = check_mentions(api,last_id,quote)
+    last_id = check_mentions(api,last_id,quote)
 
 def message(api):
-    while True:
-        direct_message_initial(api)
+    direct_message_initial(api)
 
 def post(api):
-    while True:
-        posting(api)
+    posting(api)
 
 def retweet_fun(api):
-    while True:
-        retweet_fav(api)
+    retweet_fav(api)
