@@ -10,6 +10,10 @@ logger = logging.getLogger()
 #Todo:Implement quick options with new package
 
 def direct_message_initial(api):
+    """
+    Sends direct message to those follow.
+    @param api - receives tweepy api object
+    """
     try:
         logger.info("Retriveing followers")
         for follower in tweepy.Cursor(api.followers).items():

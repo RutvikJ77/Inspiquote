@@ -14,6 +14,10 @@ logger = logging.getLogger()
 
 # Get the quote details
 def processing():
+    """
+    Fetches quotes, image and edits them
+    returns quote,author,image_credit,twitter_flag
+    """
     quote = Quotes()
     try:
         today_quote = quote.quotable()
