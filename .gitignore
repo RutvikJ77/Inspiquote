@@ -1,0 +1,7 @@
+bg images
+test.jpg
+.DS_Store
+__pycache__
+Resources/__pycache__
+local testing files
+credentials.py
