@@ -1,20 +1,14 @@
 from main import *
 from apscheduler.schedulers.blocking import BlockingScheduler
 
-@sched.scheduled_job('interval',seconds=5)
-def timed_job_tags():
-    tags(api)
 
-@sched.scheduled_job('interval',minutes=2)
-def timed_job_follow():
-    message(api)
+sched = BlockingScheduler()
+sched.add_job(tags(api),'interval',seconds=5)
 
-@sched.scheduled_job('interval',hour=8)
-def timed_job_retweet():
-    retweet_fun(api)
+sched.add_job(message(api),'interval',minutes=2)
 
-@sched.scheduled_job('cron', day_of_week='mon-sun', hour=9)
-def scheduled_job():
-    posting(api)
+sched.add_job(retweet_fun(api),'interval',hour=8)
+
+sched.add_job(posting(api),'cron', day_of_week='mon-sun', hour=9)
 
 sched.start()
