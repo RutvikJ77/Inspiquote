@@ -8,9 +8,9 @@ import textwrap
 # wd,ht = bg_img.size
 
 # Default Values
-content_font = ImageFont.truetype("DIN Condensed Bold.ttf",55)
-aut_font = ImageFont.truetype("GillSans.ttc",30)
-water_font = ImageFont.truetype("HelveticaNeue.ttc",20)
+content_font = ImageFont.truetype("/app/DIN Condensed Bold.ttf",55)
+aut_font = ImageFont.truetype("/app/GillSans.ttc",30)
+water_font = ImageFont.truetype("/app/HelveticaNeue.ttc",20)
 
 # draw_con = ImageDraw.Draw(bg_img)
 
