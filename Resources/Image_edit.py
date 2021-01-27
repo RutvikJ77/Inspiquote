@@ -3,16 +3,16 @@ import textwrap
 # from post import query
 #Preprocessing
 
-bg_img = Image.open('bg images/1.jpg')
-bg_img = bg_img.filter(ImageFilter.GaussianBlur(1.5))
-wd,ht = bg_img.size
+# bg_img = Image.open('bg images/1.jpg')
+# bg_img = bg_img.filter(ImageFilter.GaussianBlur(1.5))
+# wd,ht = bg_img.size
 
 # Default Values
-content_font = ImageFont.truetype("/System/Library/Fonts/Supplemental/Din Condensed Bold.ttf",55)
-aut_font = ImageFont.truetype("/System/Library/Fonts/Supplemental/GillSans.ttc",30)
-water_font = ImageFont.truetype("/System/Library/Fonts/Supplemental/HelveticaNeue.ttc",20)
+content_font = ImageFont.truetype("DIN Condensed Bold.ttf",55)
+aut_font = ImageFont.truetype("GillSans.ttc",30)
+water_font = ImageFont.truetype("HelveticaNeue.ttc",20)
 
-draw_con = ImageDraw.Draw(bg_img)
+# draw_con = ImageDraw.Draw(bg_img)
 
 
 
@@ -37,14 +37,24 @@ def watermark(con_font):
 
 
 
-def image_edit(orientation,quote,author):
+def image_edit(orientation,quote,author,word):
     
-    if orientation =="Landscape":
+
+    global bg_img
+    global wd,ht 
+    global draw_con 
+
+    bg_img = Image.open('bg images/'+word+'.jpg')
+    bg_img = bg_img.filter(ImageFilter.GaussianBlur(1.5))
+    wd,ht = bg_img.size
+    draw_con = ImageDraw.Draw(bg_img)
+
+    if orientation =="landscape":
         print_text(quote,content_font,t_wd=50)
         print_text(author,aut_font,divisor = 1.75,t_wd=50)
     else:
         print_text(quote,content_font)
-        print_text(author,aut_font,divisor = 1.75)
+        print_text(author,aut_font,divisor = 1.60)
     watermark(water_font)
 
 

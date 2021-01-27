@@ -1,8 +1,8 @@
 import random
 import requests
 from rake_nltk import Rake
+from credentials import *
 
-ACCESS_KEY_QUOTES = '6761a7c0be915cd2c9e8d6fd49cb360c'
 CATEGORY = ['motivation', 'inspiration', 'inspire', 'motivational', 'productive']
 
 
@@ -44,12 +44,17 @@ class Quotes:
         @param quote - type string
         returns a string
         """
-        rank = Rake(max_length=1)
-        rank.extract_keywords_from_text(quote)
-        return rank.get_ranked_phrases()[0]
+        try:
+            rank = Rake(max_length=1)
+            rank.extract_keywords_from_text(quote)
+            return rank.get_ranked_phrases()[0]
+        except:
+            return "random"
 
+            
 #Testing the quotes fetch method
 
-# quote = quotable()
+# quote_class = Quotes()
+# quote = quote_class.quotable()
 # print(quote[0])
-# print(word_query_image(quote[0]))
+# print(quote_class.word_query_image(quote[0]))
