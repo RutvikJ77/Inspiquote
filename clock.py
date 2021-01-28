@@ -3,9 +3,9 @@ from apscheduler.schedulers.blocking import BlockingScheduler
 
 
 sched = BlockingScheduler()
-sched.add_job(tags,'interval',seconds=60)
+sched.add_job(tags,'interval',minutes=5)
 
-sched.add_job(message,'interval',minutes=2)
+sched.add_job(message,'interval',minutes=4)
 
 sched.add_job(retweet_fun,'interval',hours=8)
 
