@@ -3,7 +3,7 @@ from apscheduler.schedulers.blocking import BlockingScheduler
 
 
 sched = BlockingScheduler()
-sched.add_job(tags,'interval',minutes=5)
+sched.add_job(tags,'interval',minutes=3)
 
 sched.add_job(message,'interval',minutes=4)
 
