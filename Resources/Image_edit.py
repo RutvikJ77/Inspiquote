@@ -34,7 +34,7 @@ def watermark(con_font):
         current_ht += text_con_ht +pad
     bg_img.save("/app/test.jpg")
 
-
+#Change the save path
 
 
 def image_edit(orientation,quote,author,word):
@@ -44,7 +44,7 @@ def image_edit(orientation,quote,author,word):
     global wd,ht 
     global draw_con 
 
-    bg_img = Image.open('bg images/'+word+'.jpg')
+    bg_img = Image.open('/app/bg images/'+word+'.jpg')
     bg_img = bg_img.filter(ImageFilter.GaussianBlur(1.5))
     wd,ht = bg_img.size
     draw_con = ImageDraw.Draw(bg_img)
