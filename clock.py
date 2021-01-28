@@ -9,6 +9,6 @@ sched.add_job(message,'interval',minutes=4)
 
 sched.add_job(retweet_fun,'interval',hours=8)
 
-sched.add_job(post,'cron', day_of_week='mon-sun', hour=3,minute=30)
+sched.add_job(post,'cron', day_of_week='mon-sun', hour=15,minute=35)
 
 sched.start()
