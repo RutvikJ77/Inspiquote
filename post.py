@@ -47,10 +47,10 @@ def processing():
         twitter_flag = True
 
     # Deleting images from bg images
-    try:
-        os.remove("bg images/"+query+".jpg") 
-    except:
-        logger.warning("Not able to delete the image")
+    # try:
+    #     os.remove("bg images/"+query+".jpg") 
+    # except:
+    #     logger.warning("Not able to delete the image")
 
     return quote,author,image_credit,twitter_flag
 
