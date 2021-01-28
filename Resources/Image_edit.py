@@ -32,7 +32,7 @@ def watermark(con_font):
         text_con_wd,text_con_ht = draw_con.textsize(line,font=con_font)
         draw_con.text(((wd - text_con_wd)/2,current_ht),line,font=con_font,fill=(255,255,255,75))
         current_ht += text_con_ht +pad
-    bg_img.save("test.jpg")
+    bg_img.save("/app/test.jpg")
 
 
 

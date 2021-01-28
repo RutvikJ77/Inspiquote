@@ -28,7 +28,7 @@ class GetImage:
 
         img_author = img_data['user']['name']
         img_twitter_username = img_data['user']['twitter_username']
-        img_name = 'bg images/' + query_word+ '.jpg'
+        img_name = '/app/bg images/' + query_word+ '.jpg'
         url.urlretrieve(img_url,img_name)
 
         return [img_author,img_twitter_username,orientation]

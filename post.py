@@ -57,7 +57,7 @@ def processing():
 # Update it for post
 def posting(api):
     try:
-        image_path = 'test.jpg'
+        image_path = '/app/test.jpg'
         quote,author,image_credit,twitter_flag = processing()
         if twitter_flag == True:
             tweet = quote + author + "\n\n 📸: " + "@" + image_credit
