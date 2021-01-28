@@ -1,5 +1,4 @@
 from PIL import Image
-#from credentials import *
 import requests
 import random
 import urllib.request as url

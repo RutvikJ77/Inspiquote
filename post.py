@@ -1,7 +1,7 @@
 from Resources.quotes_fetch import Quotes
 from Resources.Image_fetch import GetImage
 from Resources.Image_edit import image_edit
-#from bots.config import create_api
+# from bots.config import create_api
 import logging
 import random
 import tweepy
