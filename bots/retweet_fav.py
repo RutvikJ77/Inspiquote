@@ -6,7 +6,7 @@ import random
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger()
 
-def retweet_fav(api):
+def retweet_fav_post(api):
     """
     Retweets tweets with #motivation or #inspiration
     @param api - api object created from config

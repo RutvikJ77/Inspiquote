@@ -3,6 +3,7 @@ from bots.config import create_api
 from post import posting
 from bots.tags import check_mentions
 from bots.direct_message import direct_message_initial
+from bots.retweet_fav import retweet_fav_post
 import time
 
 api = create_api()
@@ -22,4 +23,4 @@ def post():
     posting(api)
 
 def retweet_fun():
-    retweet_fav(api)
+    retweet_fav_post(api)
