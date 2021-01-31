@@ -6,13 +6,15 @@ import random
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger()
 
+hashtag = random.choice(["#motivation","#inspiration","#inspire","#wisdom","#growth","#success","#ambition"])
+
 def retweet_fav_post(api):
     """
     Retweets tweets with #motivation or #inspiration
     @param api - api object created from config
     """
     try:
-        for tweet in tweepy.Cursor(api.search,q=random.choice(["#motivation","#inspiration"])).items(1):
+        for tweet in tweepy.Cursor(api.search,q=hashtag).items(1):
             if not tweet.favorited and not tweet.retweeted:
                 try:
                     logger.info("Tweet fav")
