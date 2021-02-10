@@ -19,6 +19,9 @@ def tags():
 def message():
     direct_message_initial(api)
 
+def tweet_quote():
+    api.update_status(quote)
+
 def post():
     posting(api)
 

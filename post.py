@@ -39,6 +39,7 @@ def processing():
     author = "- " + today_quote[1]
     image_edit(bg_image_details[2],quote,author,query)
 
+    #Checks whether Author has tweeter Id
     if bg_image_details[1] is None:
         image_credit = bg_image_details[0]
         twitter_flag = False
