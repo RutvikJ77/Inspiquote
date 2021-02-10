@@ -26,7 +26,7 @@ def print_text(con_text,con_font,divisor = 3,t_wd = 25):
     
 
 def watermark(con_font):
-    current_ht,pad = ht//1.25,25
+    current_ht,pad = ht//1.20,25
     para = textwrap.wrap("@QuoteInspi",width = 25)
     for line in para:
         text_con_wd,text_con_ht = draw_con.textsize(line,font=con_font)
@@ -54,7 +54,7 @@ def image_edit(orientation,quote,author,word):
         print_text(author,aut_font,divisor = 1.75,t_wd=50)
     else:
         print_text(quote,content_font)
-        print_text(author,aut_font,divisor = 1.60)
+        print_text(author,aut_font,divisor = 1.45)
     watermark(water_font)
 
 
