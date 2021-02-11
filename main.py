@@ -8,7 +8,7 @@ import time
 
 api = create_api()
 quote_class = Quotes()
-quote_author = quote_class.random_quote_fav()
+quote_author = quote_class.quotes_fav()
 quote = "\"" + quote_author[0] + "\" " + "- " + quote_author[1]
 
 
