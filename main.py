@@ -5,10 +5,11 @@ from bots.tags import check_mentions
 from bots.direct_message import direct_message_initial
 from bots.retweet_fav import retweet_fav_post
 import time
+import random
 
 api = create_api()
 quote_class = Quotes()
-quote_author = quote_class.quotes_fav()
+quote_author = random.choice([quote_class.quotes_fav(),quote_class.quotable()])
 quote = "\"" + quote_author[0] + "\" " + "- " + quote_author[1]
 
 
