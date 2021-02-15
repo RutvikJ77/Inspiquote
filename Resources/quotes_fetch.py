@@ -9,10 +9,10 @@ ACCESS_KEY_QUOTES = environ['ACCESS_KEY_QUOTES']
 
 class Quotes:
     def quotes_fav(self):
-        '''
+        """
         Fetches quotes from FavQuotes API from the category list
         returns a list of quote and author
-        '''
+        """
         response = requests.get('https://favqs.com/api/quotes/',
                                 params={'filter':random.choice(CATEGORY)},
                                 headers={'Authorization':'Token token='+ACCESS_KEY_QUOTES})
@@ -20,10 +20,10 @@ class Quotes:
         return [quote_list_json['quotes'][0]['body'], quote_list_json['quotes'][0]['author']]
 
     def random_quote_fav(self):
-        '''
+        """
         Fetches quote of the Day
         returns a list of quote and author
-        '''
+        """
         response = requests.get('https://favqs.com/api/qotd')
         quote_random = response.json()['quote']['body']
         quote_author = response.json()['quote']['author']

@@ -15,7 +15,7 @@ logger = logging.getLogger()
 # Get the quote details
 def processing():
     """
-    Fetches quotes, image and edits them
+    Fetches quotes, image and edits them.
     returns quote,author,image_credit,twitter_flag
     """
     quote = Quotes()

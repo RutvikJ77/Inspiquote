@@ -17,15 +17,26 @@ water_font = ImageFont.truetype("/app/.fonts/HelveticaNeue.ttc",20)
 
 
 def print_text(con_text,con_font,divisor = 3,t_wd = 25):
+    """
+    Prints the text on image.
+    @params con_text - content
+    @params con_font - font style
+    returns none
+    """
+
     current_ht,pad = ht//divisor,25
-    para = textwrap.wrap(con_text,width = t_wd)
+    para = textwrap.wrap(con_text, width = t_wd)
     for line in para:
-        text_con_wd,text_con_ht = draw_con.textsize(line,font=con_font)
-        draw_con.text(((wd - text_con_wd)/2,current_ht),line,font=con_font)
-        current_ht += text_con_ht +pad
+        text_con_wd,text_con_ht = draw_con.textsize(line, font=con_font)
+        draw_con.text(((wd - text_con_wd)/2,current_ht),line, font=con_font)
+        current_ht += text_con_ht + pad
     
 
 def watermark(con_font):
+    """
+    Creates watermark on images.
+    @param - con_font - font size
+    """
     current_ht,pad = ht//1.20,25
     para = textwrap.wrap("@QuoteInspi",width = 25)
     for line in para:
@@ -34,12 +45,18 @@ def watermark(con_font):
         current_ht += text_con_ht +pad
     bg_img.save("/app/test.jpg")
 
-#Change the save path
+#Change the save path if running locally
 
 
 def image_edit(orientation,quote,author,word):
-    
-
+    """
+    The image edit function blurs the image and calls rest functions for processing.
+    @params - orientation
+    @params - quote
+    @params - author
+    @params - word
+    returns none
+    """
     global bg_img
     global wd,ht 
     global draw_con 
