@@ -4,7 +4,7 @@ from rake_nltk import Rake
 from os import environ
 
 
-CATEGORY = ['motivation', 'inspiration', 'inspire', 'motivational', 'productive']
+# CATEGORY = ['motivation', 'inspiration', 'inspire', 'motivational', 'productive']
 ACCESS_KEY_QUOTES = environ['ACCESS_KEY_QUOTES']
 
 class Quotes:
@@ -13,18 +13,25 @@ class Quotes:
         Fetches quotes from FavQuotes API from the category list
         returns a list of quote and author
         """
-        response = requests.get('https://favqs.com/api/quotes/',
-                                params={'filter':random.choice(CATEGORY)},
-                                headers={'Authorization':'Token token='+ACCESS_KEY_QUOTES})
-        quote_list_json = response.json()
-        return [quote_list_json['quotes'][0]['body'], quote_list_json['quotes'][0]['author']]
+        try:
+            response = requests.get('https://favqs.com/api/quotes/',
+                                    headers={'Authorization':'Token token='+ACCESS_KEY_QUOTES})
+            quote_list_json = response.json()
+            return [quote_list_json['quotes'][0]['body'], quote_list_json['quotes'][0]['author']]
+        except:
+            response = requests.get('https://favqs.com/api/quotes/',
+                                    headers={'Authorization':'Token token='+ACCESS_KEY_QUOTES},verify=False)
+            quote_list_json = response.json()
+            return [quote_list_json['quotes'][0]['body'], quote_list_json['quotes'][0]['author']]
+
+
 
     def random_quote_fav(self):
         """
         Fetches quote of the Day
         returns a list of quote and author
         """
-        response = requests.get('https://favqs.com/api/qotd')
+        response = requests.get('https://favqs.com/api/qotd',verify=False)
         quote_random = response.json()['quote']['body']
         quote_author = response.json()['quote']['author']
         return [quote_random, quote_author]
