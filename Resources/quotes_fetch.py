@@ -1,13 +1,19 @@
-import random
+"""
+Provides Quote class.
+"""
+
+from os import environ
 import requests
 from rake_nltk import Rake
-from os import environ
 
 
-# CATEGORY = ['motivation', 'inspiration', 'inspire', 'motivational', 'productive']
+
 ACCESS_KEY_QUOTES = environ['ACCESS_KEY_QUOTES']
 
 class Quotes:
+    """
+    Quote fetch functions.
+    """
     def quotes_fav(self):
         """
         Fetches quotes from FavQuotes API from the category list
@@ -18,9 +24,10 @@ class Quotes:
                                     headers={'Authorization':'Token token='+ACCESS_KEY_QUOTES})
             quote_list_json = response.json()
             return [quote_list_json['quotes'][0]['body'], quote_list_json['quotes'][0]['author']]
-        except:
+        except Exception:
             response = requests.get('https://favqs.com/api/quotes/',
-                                    headers={'Authorization':'Token token='+ACCESS_KEY_QUOTES},verify=False)
+                                    headers={'Authorization':'Token token='+ACCESS_KEY_QUOTES},
+                                    verify=False)
             quote_list_json = response.json()
             return [quote_list_json['quotes'][0]['body'], quote_list_json['quotes'][0]['author']]
 
@@ -56,13 +63,5 @@ class Quotes:
             rank = Rake(max_length=1)
             rank.extract_keywords_from_text(quote)
             return rank.get_ranked_phrases()[0]
-        except:
+        except Exception:
             return "random"
-
-            
-#Testing the quotes fetch method
-
-# quote_class = Quotes()
-# quote = quote_class.quotable()
-# print(quote[0])
-# print(quote_class.word_query_image(quote[0]))

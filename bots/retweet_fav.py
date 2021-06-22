@@ -1,12 +1,15 @@
-import tweepy
+"""
+Provides Retweet Functionality.
+"""
 import logging
 import random
-#Import the required config and time module for single file test.
+import tweepy
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger()
 
-hashtag = random.choice(["#motivation","#inspiration","#inspire","#wisdom","#growth","#success","#ambition"])
+hashtag = random.choice(["#motivation","#inspiration","#inspire"
+                        ,"#wisdom","#growth","#success","#ambition"])
 
 def retweet_fav_post(api):
     """
@@ -21,17 +24,7 @@ def retweet_fav_post(api):
                     tweet.favorite()
                     logger.info("Tweet retweeted")
                     tweet.retweet()
-                except Exception as e:
+                except Exception:
                     logger.error("Error on fav and retweet", exc_info=True)
-    except tweepy.TweepError as e:
-        logger.error(e.reason)
-
-# Local testing purposes
-# def main():
-#     api = create_api()
-#     while True:
-#         retweet_fav(api)
-#         time.sleep(10)
-
-# if __name__ =="__main__":
-#     main()
+    except tweepy.TweepError as retweet_error:
+        logger.error(retweet_error.reason)
