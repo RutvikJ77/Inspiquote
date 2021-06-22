@@ -1,13 +1,21 @@
-from PIL import Image
-import requests
+"""
+Provides Image Fetching class.
+"""
+from os import environ
 import random
 import urllib.request as url
-from os import environ
+import logging
+import requests
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger()
 
 UNSPLASH_ACCESS_KEY = environ["UNSPLASH_ACCESS_KEY"]
 
 class GetImage:
-    
+    """
+    Provides Image fetching functions.
+    """
     def get_unsplash_img(self,query_word = 'motivation'):
         """
         Gets images from Unsplash and downloads+resizes it.
@@ -18,12 +26,14 @@ class GetImage:
             orientation = random.choice(['landscape','portrait'])
             if orientation == "landscape":
                 response = requests.get('https://api.unsplash.com/photos/random',
-                            headers={'Authorization':'Client-ID '+UNSPLASH_ACCESS_KEY},params={'query':query_word,'orientation':orientation})
+                            headers={'Authorization':'Client-ID '+UNSPLASH_ACCESS_KEY},
+                            params={'query':query_word,'orientation':orientation})
                 img_data = response.json()
                 img_url = img_data['urls']['raw'] + "&fit=max&w=1200&h=675"
             else:
                 response = requests.get('https://api.unsplash.com/photos/random',
-                            headers={'Authorization':'Client-ID '+UNSPLASH_ACCESS_KEY},params={'query':query_word,'orientation':orientation})
+                            headers={'Authorization':'Client-ID '+UNSPLASH_ACCESS_KEY},
+                            params={'query':query_word,'orientation':orientation})
                 img_data = response.json()
                 img_url = img_data['urls']['raw'] + "&fit=max&w=640&h=960"
 
@@ -33,7 +43,7 @@ class GetImage:
             url.urlretrieve(img_url,img_name)
 
             return [img_author,img_twitter_username,orientation]
-        except:
-            logger.error("Image fetching error")
 
-#Change the img_name variable to the local path
+        except Exception:
+            logger.error("Image fetching error")
+            return None
